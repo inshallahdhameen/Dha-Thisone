@@ -14,7 +14,7 @@ import {
   healthCheckOptimization,
   timeoutProtection,
   memoryOptimization
-} from './middleware/render-bulletproof-middleware';
+} from './middleware/render-bulletproof-middleware.js';
 
 
 // Load environment variables first
@@ -226,7 +226,7 @@ if (process.env.NODE_ENV !== 'production') {
   console.log('🔧 Setting up Vite development server...');
   try {
     const { setupVite } = await import('./vite.js'); // Dynamically import setupVite
-    await setupVite(app);
+    await setupVite(app, server);
     console.log('✅ Vite development server ready');
   } catch (error) {
     console.warn('⚠️ Vite setup failed, continuing in production mode:', error);

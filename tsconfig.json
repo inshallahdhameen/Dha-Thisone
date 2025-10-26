@@ -13,21 +13,18 @@
     "strictNullChecks": false,
     "noErrorTruncation": true,
     "composite": false,
-    "noEmitOnError": false,
+    "noEmitOnError": true,
     "skipLibCheck": true,
     "noUnusedLocals": false,
     "noUnusedParameters": false,
     "preserveWatchOutput": true,
     "forceConsistentCasingInFileNames": true,
-    "types": ["node", "express", "socket.io", "ws", "axios"],
     "lib": ["ES2022", "DOM"],
     "resolveJsonModule": true,
     "baseUrl": ".",
     "paths": {
-      "#server/*": ["./server/*"],
-      "@shared/*": ["./shared/*"],
       "@/*": ["./src/*"],
-      "shared/*": ["./shared/*"]
+      "@shared/*": ["./shared/*"]
     },
     "allowUnreachableCode": false,
     "allowUnusedLabels": false,
@@ -39,10 +36,12 @@
     "incremental": true
   },
   "ts-node": {
-    "transpileOnly": true
+    "transpileOnly": true,
+    "esm": true
   },
   "include": [
     "server/**/*.ts",
+    "shared/**/*.ts",
     "server/**/*.js",
     "server/**/*.d.ts"
   ],

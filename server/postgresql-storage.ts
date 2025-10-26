@@ -29,8 +29,39 @@ import {
   type DhaDocument, type InsertDhaDocument,
   type DhaDocumentVerification, type InsertDhaDocumentVerification,
   type AiBotSession, type InsertAiBotSession,
-  type AiCommandInterface, type InsertAiCommandInterface
-} from "@shared/schema";
+  type AiCommandInterface, type InsertAiCommandInterface,
+  // Import table schemas
+  users,
+  conversations,
+  messages,
+  documents,
+  securityEvents,
+  fraudAlerts,
+  systemMetrics,
+  auditLogs,
+  complianceEvents,
+  userBehaviorProfiles,
+  selfHealingActions,
+  securityIncidents,
+  systemHealthSnapshots,
+  errorCorrections,
+  healthCheckResults,
+  failoverEvents,
+  performanceBaselines,
+  alertRules,
+  circuitBreakerStates,
+  uptimeIncidents,
+  autonomousOperations,
+  maintenanceTasks,
+  governmentComplianceAudits,
+  securityMetrics,
+  biometricProfiles,
+  dhaApplicants,
+  dhaDocuments,
+  dhaDocumentVerifications,
+  aiBotSessions,
+  aiCommandInterfaces
+} from "../shared/schema.js";
 import { eq, desc, and, gte, sql, or, isNull, count } from "drizzle-orm";
 import { PostgresJsDatabase } from "drizzle-orm/postgres-js";
 import * as schema from "./schema/tables.js";
@@ -163,6 +194,7 @@ import * as bcrypt from "bcryptjs";
  * Replaces MemStorage with persistent database storage for Railway deployment
  */
 export class PostgreSQLStorage implements IStorage {
+  // Implement IStorage interface methods from storage/postgresql-storage.ts
   getDocumentVerificationHistory: any;
 
   // ===================== USER MANAGEMENT =====================
